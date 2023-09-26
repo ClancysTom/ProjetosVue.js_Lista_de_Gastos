@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Gastos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+            <h1>Lista de Gastos</h1>
+            <input v-model="novoGasto" @keyup.enter="adicionarGasto" placeholder="Adicionar gasto...">
+            <ul>
+                <li v-for="(gasto, index) in gastos" :key="index">
+                    <div class="gasto-item" :class="{ pago: gasto.pago }">
+                        <span>{{ gasto.nome }}</span>
+                        <button @click="marcarGastoPago(index)">{{ gasto.pago ? 'Desmarcar' : 'Marcar' }} Pago</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
